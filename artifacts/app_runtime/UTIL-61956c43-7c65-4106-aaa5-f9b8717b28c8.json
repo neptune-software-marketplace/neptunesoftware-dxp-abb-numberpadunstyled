@@ -1,0 +1,878 @@
+{
+	"id": "61956c43-7c65-4106-aaa5-f9b8717b28c8",
+	"createdAt": "2022-02-04T15:47:50.260Z",
+	"updatedAt": "2022-07-26T08:30:57.120Z",
+	"createdBy": "luuk.wosten@neptune-software.com",
+	"changedBy": "kristin.eliassen@neptune-software.com",
+	"objects": [
+		{
+			"fieldNo": "bca60104-dc2d-4f59-e8ae-68b60c556eb2",
+			"fieldName": "oShell",
+			"fieldParent": 0,
+			"fieldType": "sap.m.Shell",
+			"script": "",
+			"request": [],
+			"response": [],
+			"attributes": [],
+			"data": [
+				{
+					"fieldNo": "9d369415-61dc-46e3-c586-2bf9d5d4e07f",
+					"fieldName": "oApp",
+					"fieldParent": "bca60104-dc2d-4f59-e8ae-68b60c556eb2",
+					"fieldType": "sap.m.App",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": [
+						{
+							"fieldNo": "c9775554-ed64-4e85-ddf3-110399048b34",
+							"fieldName": "oPageStart",
+							"fieldParent": "9d369415-61dc-46e3-c586-2bf9d5d4e07f",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [],
+							"data": [
+								{
+									"fieldNo": "60cd969a-1c6d-4b16-91c8-660d63f8a6ff",
+									"fieldName": "Label",
+									"fieldParent": "c9775554-ed64-4e85-ddf3-110399048b34",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Number Pad",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "be840a74-7f14-4bbb-d693-945a0329b881",
+									"fieldName": "Input",
+									"fieldParent": "c9775554-ed64-4e85-ddf3-110399048b34",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "valueHelpOnly",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "showValueHelp",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "placeholder",
+											"grouping": "Properties",
+											"value": "Click me to add number",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "valueHelpRequest",
+											"grouping": "Events",
+											"value": "openNumpad(this);",
+											"script": "openNumpad(this);",
+											"translation": []
+										},
+										{
+											"attribute": "enableSuggestionsHighlighting",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								}
+							]
+						},
+						{
+							"fieldNo": "9a5ba8bf-1ad9-4299-c4b7-59974e069e42",
+							"fieldName": "oPageDialogs",
+							"fieldParent": "9d369415-61dc-46e3-c586-2bf9d5d4e07f",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [],
+							"data": [
+								{
+									"fieldNo": "64cf1878-653c-48ae-f2c1-bac1c73afa5b",
+									"fieldName": "HTML",
+									"fieldParent": "9a5ba8bf-1ad9-4299-c4b7-59974e069e42",
+									"fieldType": "sap.ui.core.HTML",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "d5bbd800-f3d0-460d-c9d6-ad4dbef0b93a",
+											"fieldName": "Html",
+											"fieldParent": "64cf1878-653c-48ae-f2c1-bac1c73afa5b",
+											"fieldType": "neptune.Html",
+											"script": [
+												"==OBJECT STRING==",
+												"<style type=\"text/css\" media=\"all\">",
+												"    .sapMBtn {",
+												"    height: 2.300rem;",
+												"    margin: 0;",
+												"    padding: 0.250rem 0;",
+												"    vertical-align: top;",
+												"    border: none;",
+												"    background-color: transparent;",
+												"}",
+												"</style>"
+											],
+											"request": [],
+											"response": [],
+											"attributes": [],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "82168263-9bd9-41df-8810-67ba78b47623",
+									"fieldName": "functionNumPad",
+									"fieldParent": "9a5ba8bf-1ad9-4299-c4b7-59974e069e42",
+									"fieldType": "neptune.Script",
+									"script": [
+										"==OBJECT STRING==",
+										"function addNumpadEntry(value) {",
+										"    if (Window.numPad.maxValue > 0) {",
+										"        if (oNumPadValue.getValue() + value > Window.numPad.maxValue) {",
+										"",
+										"            jQuery.sap.require(\"sap.m.MessageToast\");",
+										"            sap.m.MessageToast.show(\"Value too high!\");",
+										"            oNumPadValue.setValue(oNumPadValue.getValue());",
+										"",
+										"        } else {",
+										"            oNumPadValue.setValue(oNumPadValue.getValue() + value)",
+										"        }",
+										"    } else {",
+										"        oNumPadValue.setValue(oNumPadValue.getValue() + value)",
+										"    }",
+										"",
+										"}",
+										"",
+										"function openNumpad(caller, maxvalue,minvalue) {",
+										"    Window.numPad = {};",
+										"    Window.numPad.valueSource = caller;",
+										"    Window.numPad.maxValue = maxvalue;",
+										"    Window.numPad.minValue = minvalue;",
+										"    diaNumPad.open();",
+										"}",
+										""
+									],
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": []
+								},
+								{
+									"fieldNo": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+									"fieldName": "diaNumPad",
+									"fieldParent": "9a5ba8bf-1ad9-4299-c4b7-59974e069e42",
+									"fieldType": "sap.m.Dialog",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Message",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "showHeader",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "9cd23ea7-e7b5-4721-878b-429d1dc232ee",
+											"fieldName": "oNumPadValue",
+											"fieldParent": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+											"fieldType": "sap.m.Input",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [],
+											"data": []
+										},
+										{
+											"fieldNo": "340e928f-a3e9-4543-c606-a660c52a8203",
+											"fieldName": "oHBox",
+											"fieldParent": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignItems",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "4fcf1467-fdbd-49bc-8391-421a294a6e57",
+													"fieldName": "butNumpadExit",
+													"fieldParent": "340e928f-a3e9-4543-c606-a660c52a8203",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "type",
+															"grouping": "Properties",
+															"value": "Reject",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "iconDensityAware",
+															"grouping": "Properties",
+															"value": "false",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://sys-cancel",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "Anonymous Function",
+															"script": [
+																"==OBJECT STRING==",
+																"diaNumPad.close();",
+																"oNumPadValue.setValue(Window.numPad.valueSource.getValue());",
+																""
+															],
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "ff9717e4-c07c-4125-f4f6-497c3b74285d",
+													"fieldName": "butNumpadClear",
+													"fieldParent": "340e928f-a3e9-4543-c606-a660c52a8203",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "type",
+															"grouping": "Properties",
+															"value": "Default",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://delete",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "oNumPadValue.setValue();",
+															"script": "oNumPadValue.setValue();",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "70f6529a-f014-43ec-cb56-7fcebe213d0f",
+													"fieldName": "butNumpadConf",
+													"fieldParent": "340e928f-a3e9-4543-c606-a660c52a8203",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "type",
+															"grouping": "Properties",
+															"value": "Accept",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://accept",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "Anonymous Function",
+															"script": [
+																"==OBJECT STRING==",
+																"Window.numPad.valueSource.setValue(oNumPadValue.getValue());",
+																"diaNumPad.close();",
+																""
+															],
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "70e40f53-1426-496e-a4f9-2a6c78fd14ee",
+											"fieldName": "oHBox1",
+											"fieldParent": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignItems",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "db4621e7-7ad7-48d8-98aa-c8de2ffd2f63",
+													"fieldName": "butNumpad1",
+													"fieldParent": "70e40f53-1426-496e-a4f9-2a6c78fd14ee",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "1",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(1);",
+															"script": "addNumpadEntry(1);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "2afdebc7-583e-4d0f-c774-c03c37d074c1",
+													"fieldName": "butNumpad2",
+													"fieldParent": "70e40f53-1426-496e-a4f9-2a6c78fd14ee",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "2",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(2);",
+															"script": "addNumpadEntry(2);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "6dab525c-4092-459a-acd0-86d79b6b7e53",
+													"fieldName": "butNumpad3",
+													"fieldParent": "70e40f53-1426-496e-a4f9-2a6c78fd14ee",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "3",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(3);",
+															"script": "addNumpadEntry(3);",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "0571e9a9-2c95-46b6-b0e5-274cfb802ef7",
+											"fieldName": "oHBox2",
+											"fieldParent": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignItems",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "9679afd0-c4d7-4452-b75d-a40a244a2bc9",
+													"fieldName": "butNumpad4",
+													"fieldParent": "0571e9a9-2c95-46b6-b0e5-274cfb802ef7",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(4);",
+															"script": "addNumpadEntry(4);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "d463b100-2ae0-42cc-be18-a4561f96667b",
+													"fieldName": "butNumpad5",
+													"fieldParent": "0571e9a9-2c95-46b6-b0e5-274cfb802ef7",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "5",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(5);",
+															"script": "addNumpadEntry(5);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "7398d073-c268-4342-8e75-44b163ce1712",
+													"fieldName": "butNumpad6",
+													"fieldParent": "0571e9a9-2c95-46b6-b0e5-274cfb802ef7",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "6",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(6);",
+															"script": "addNumpadEntry(6);",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "5ffb34d4-e76c-479f-8ba0-5c3a38c6b522",
+											"fieldName": "oHBox3",
+											"fieldParent": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignItems",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "c5abc9f8-7b51-4746-ab40-c1bbe6a57be1",
+													"fieldName": "butNumpad7",
+													"fieldParent": "5ffb34d4-e76c-479f-8ba0-5c3a38c6b522",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "7",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(7);",
+															"script": "addNumpadEntry(7);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "b900e4fe-febd-4f6f-dfbd-0872b3e72809",
+													"fieldName": "butNumpad8",
+													"fieldParent": "5ffb34d4-e76c-479f-8ba0-5c3a38c6b522",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(8);",
+															"script": "addNumpadEntry(8);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "d17886f4-9b34-4853-9a22-e1201311d611",
+													"fieldName": "butNumpad9",
+													"fieldParent": "5ffb34d4-e76c-479f-8ba0-5c3a38c6b522",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "9",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(9);",
+															"script": "addNumpadEntry(9);",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "96ea2d00-15b8-46a3-8a0c-2d91a6419551",
+											"fieldName": "oHBox4",
+											"fieldParent": "885c7a37-1a43-4817-f6b9-3667c40eba83",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignItems",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "alignContent",
+													"grouping": "Properties",
+													"value": "Center",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "af5db4fb-bb74-4401-eaa1-8247571b938f",
+													"fieldName": "butNumpadDot",
+													"fieldParent": "96ea2d00-15b8-46a3-8a0c-2d91a6419551",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": ".",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(\".\");",
+															"script": "addNumpadEntry(\".\");",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "9231d8ab-da2b-4890-a01c-56ad7bf94646",
+													"fieldName": "butNumpad0",
+													"fieldParent": "96ea2d00-15b8-46a3-8a0c-2d91a6419551",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "0",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "addNumpadEntry(0);",
+															"script": "addNumpadEntry(0);",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "f7aa5898-fc2a-4803-861d-38f9319add38",
+													"fieldName": "butDeleteOneStep",
+													"fieldParent": "96ea2d00-15b8-46a3-8a0c-2d91a6419551",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://fa-solid/backspace",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "Anonymous Function",
+															"script": [
+																"==OBJECT STRING==",
+																"var value = oNumPadValue.getValue();",
+																"oNumPadValue.setValue(value.slice(0,-1));",
+																""
+															],
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"fieldNo": 99999,
+			"data": []
+		},
+		{
+			"fieldNo": 99998,
+			"data": []
+		}
+	],
+	"ver": "22.7.26.1030",
+	"application": "neptbb_numberpad",
+	"title": "UTIL",
+	"description": "Universal Numpad - Unstylled",
+	"enableFileStorage": false,
+	"enableManifest": false,
+	"enableStylesheet": false,
+	"enableObfuscate": false,
+	"onlyRunLaunchpad": false,
+	"disabled": false,
+	"loadLaunchpadCode": null,
+	"loadApplicationCode": null,
+	"appType": "C",
+	"ui5_m": true,
+	"ui5_f": false,
+	"ui5_table": false,
+	"ui5_tnt": false,
+	"ui5_uxap": false,
+	"ui5_chart": false,
+	"ui5_theme": "sap_belize",
+	"ui5_version": "",
+	"ui5_language": null,
+	"cus_theme": "",
+	"css": "",
+	"header": "",
+	"manifest": "",
+	"globalScript": "",
+	"deleted": false,
+	"libHighchart": false,
+	"libHighmap": false,
+	"publicAccess": false,
+	"ui5_bootstrap": false,
+	"apis": []
+}

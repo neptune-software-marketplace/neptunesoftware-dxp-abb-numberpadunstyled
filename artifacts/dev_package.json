@@ -1,0 +1,47 @@
+{
+	"id": "FFF0CA3F-BD0C-ED11-B47A-000D3AB2359F",
+	"createdAt": "2022-07-26T08:30:48.696Z",
+	"createdBy": "kristin.eliassen@neptune-software.com",
+	"git": {
+		"targetServers": [],
+		"remote": "https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-numberpadunstyled",
+		"testServers": []
+	},
+	"name": "neptunesoftware-dxp-abb-numberpadunstyled",
+	"description": null,
+	"ver": "22.8.3.817",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "61956C43-7C65-4106-AAA5-F9B8717B28C8",
+			"ver": "22.7.26.1030",
+			"application": "neptbb_numberpad",
+			"title": "UTIL",
+			"description": "Universal Numpad - Unstylled"
+		}
+	],
+	"api": [],
+	"odataMock": [],
+	"odataSource": [],
+	"dictionary": [],
+	"jsclass": [],
+	"jsscript_group": [],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"wf_definition": [],
+	"department": [],
+	"script_scheduler": [],
+	"connector": []
+}
